@@ -16,6 +16,7 @@ const pgdb = require('../database/pgdb');
 const MeType = require('./types/me');
 const LaunchType = require('./types/launch');
 const CustomerType = require('./types/customer');
+const ActionType = require('./types/action');
 const UserType = require('./types/users');
 const TasksType = require('./types/task');
 
@@ -103,6 +104,15 @@ const RootQueryType = new GraphQLObjectType({
             resolve(parentValue, args) {
                 return axios
                     .get(`http://localhost:${jsonServerPort}/customers`)
+                    .then((res) => res.data);
+            },
+        },
+        actions: {
+            type: new GraphQLList(ActionType),
+            description: 'Return all Action data from mock api',
+            resolve(parentValue, args) {
+                return axios
+                    .get(`http://localhost:${jsonServerPort}/actions`)
                     .then((res) => res.data);
             },
         },
