@@ -107,15 +107,15 @@ const RootQueryType = new GraphQLObjectType({
                     .then((res) => res.data);
             },
         },
+
         actions: {
             type: new GraphQLList(ActionType),
-            description: 'Return all Action data from mock api',
-            resolve(parentValue, args) {
-                return axios
-                    .get(`http://localhost:${jsonServerPort}/actions`)
-                    .then((res) => res.data);
+            description: 'list all users',
+            resolve: (obj, args, { pgPool }) => {
+                return pgdb(pgPool).getAllActions();
             },
         },
+        
     },
 });
 
@@ -134,6 +134,18 @@ const RootMutationType = new GraphQLObjectType({
             },
             resolve(obj, args, { pgPool }) {
                 return pgdb(pgPool).addNewUser(args);
+            },
+        },
+        addNewAction: {
+            type: ActionType,
+            description: 'Add a new action to the database',
+            args: {
+                actionname: { type: GraphQLString },
+                description: { type: GraphQLString },
+                apikey: { type: GraphQLString },
+            },
+            resolve(obj, args, { pgPool }) {
+                return pgdb(pgPool).addNewAction(args);
             },
         },
 

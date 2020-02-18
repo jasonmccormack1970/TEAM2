@@ -11,16 +11,13 @@ const ACTIONS_QUERY = gql`
     query ActionsQuery {
         actions {
             id
-            action
+            actionname
             description
+            apikey
         }
     }
 `;
 function actions() {
-    function refreshPage() {
-        window.location.reload(true);
-    }
-
     return (
         <div>
             <div className="card" style={{ marginTop: '10px' }}>
@@ -46,7 +43,7 @@ function actions() {
                             <div className="card">
                                 <div className="card-body" style={CARD_STYLE}>
                                     <h5 className="card-title text-muted">
-                                        GraphQL resolver returning "ALL" actions from a Mock API
+                                        GraphQL resolver returning "ALL" actions from a Postgres table
                                     </h5>
                                     <div>
                                         <Table striped bordered hover size="sm">
@@ -55,21 +52,22 @@ function actions() {
                                                     <th>ID</th>
                                                     <th>Action</th>
                                                     <th>Description</th>
+                                                    <th>API KEY</th>
                                                 </tr>
                                             </thead>
                                             <tbody>
                                                 {data.actions.map((item) => (
                                                     <tr key={item.id}>
                                                         <td>{item.id}</td>
-                                                        <td>{item.action}</td>
+                                                        <td>{item.actionname}</td>
                                                         <td>{item.description}</td>
+                                                        <td>{item.apikey}</td>
                                                     </tr>
                                                 ))}
                                             </tbody>
                                         </Table>
                                     </div>
                                 </div>
-                                <button onClick={refreshPage}>REFRESH PAGE</button>
                             </div>
                         );
                     }}
