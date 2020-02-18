@@ -26,5 +26,17 @@
             "Price": "$90m",
             "Currency": "USD"
         }
+    ],
+    "actions": [
+        {
+            "id": "0001",
+            "action": "Fill fuel tanks",
+            "description": "Remember to use the correct type"
+        },
+        {
+            "id": "0002",
+            "action": "Load food",
+            "description": "Check they're secured properly"
+        } 
     ]
 }

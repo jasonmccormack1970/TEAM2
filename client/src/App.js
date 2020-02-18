@@ -8,6 +8,7 @@ import Example from './pages/example';
 import Example2 from './pages/example2';
 import Example3 from './pages/example3';
 import Example4 from './pages/example4';
+import Actions from './pages/actions';
 import Empty from './pages/empty';
 import MissingRoute from './pages/MissingRoute';
 
@@ -35,6 +36,7 @@ function App(message) {
                                 <Route exact path="/example2" component={Example2} />
                                 <Route exact path="/example3" component={Example3} />
                                 <Route exact path="/example4" component={Example4} />
+                                <Route exact path="/actions" component={Actions} />
                                 <Route exact path="/empty" component={Empty} />
                                 <Route component={MissingRoute} />
                             </Switch>

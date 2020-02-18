@@ -38,6 +38,9 @@ export const NavigationBar = () => (
                         <NavDropdown.Item href="/example3">
                             Example Page 3 - Mock API
                         </NavDropdown.Item>
+                        <NavDropdown.Item href="/actions">
+                            Actions Page - Mock API
+                        </NavDropdown.Item>
                         <NavDropdown.Divider />
                     </NavDropdown>
 
