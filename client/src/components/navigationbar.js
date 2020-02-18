@@ -41,6 +41,9 @@ export const NavigationBar = () => (
                         <NavDropdown.Item href="/actions">
                             Actions Page - Mock API
                         </NavDropdown.Item>
+                        <NavDropdown.Item href="/employee">
+                            Employees Page - Mock API
+                        </NavDropdown.Item>
                         <NavDropdown.Divider />
                     </NavDropdown>
 

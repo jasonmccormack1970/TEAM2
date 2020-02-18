@@ -19,6 +19,7 @@ const CustomerType = require('./types/customer');
 const ActionType = require('./types/action');
 const UserType = require('./types/users');
 const TasksType = require('./types/task');
+const EmployeeType = require('./types/Employee');
 
 // The root query type is where in the data graph begins
 const RootQueryType = new GraphQLObjectType({
@@ -116,6 +117,15 @@ const RootQueryType = new GraphQLObjectType({
                     .then((res) => res.data);
             },
         },
+        Employees: {
+            type: new GraphQLList(EmployeeType),
+            description: 'Return all Employees data from mock api',
+            resolve(parentValue, args) {
+                return axios
+                    .get(`http://localhost:${jsonServerPort}/employee`)
+                    .then((res) => res.data);
+            },
+        },       
     },
 });
 
