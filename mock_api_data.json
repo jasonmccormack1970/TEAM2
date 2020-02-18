@@ -38,5 +38,21 @@
             "action": "Load food",
             "description": "Check they're secured properly"
         } 
-    ]
+    ],
+    "employee": [
+        {
+            "id": "0001",
+            "name": "John Smith",
+            "email": "test@test.com",
+            "role": "Engineer",
+            "Status": true
+        },
+        {
+            "id": "0002",
+            "name": "Phil Jones",
+            "email": "Test1@test.com",
+            "role": "Engineer",
+            "Status": true           
+        } 
+    ]    
 }
