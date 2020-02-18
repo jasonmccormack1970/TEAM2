@@ -1,3 +1,26 @@
+-- Table: public.actions
+
+-- DROP TABLE public.actions;
+
+CREATE TABLE public.actions
+(
+    id integer NOT NULL DEFAULT nextval('actions_id_seq'::regclass),
+    actionname character varying(128) COLLATE pg_catalog."default",
+    description character varying(128) COLLATE pg_catalog."default",
+    apikey character varying(128) COLLATE pg_catalog."default",
+    created_at timestamp without time zone NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    CONSTRAINT actions_pkey PRIMARY KEY (id)
+)
+
+TABLESPACE pg_default;
+
+ALTER TABLE public.actions
+    OWNER to postgres;
+
+
+############################################################################
+
+
 drop table if exists users;
 drop table if exists tasks;
 
